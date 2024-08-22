@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 const db = require('./db');
 const bodyParser = require('body-parser')
-
+require ('dotenv').config();
+const PORT = process.env.PORT || 4000;
 
 app.use(bodyParser.json());
 
@@ -19,6 +20,6 @@ app.use('/person', personRouter)
 app.use('/menu', menuItemRouter)
 
 // port listening
-app.listen(4000, ()=>{
+app.listen(PORT, ()=>{
     console.log('Server start at Port 4000')
 })
